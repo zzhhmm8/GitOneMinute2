@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.16)
+project(GitOneMinute VERSION 1.0.0 LANGUAGES CXX)
+
+add_executable(GitOneMinute src/main.cpp)
+target_compile_features(GitOneMinute PRIVATE cxx_std_11)
+set_target_properties(GitOneMinute PROPERTIES CXX_EXTENSIONS OFF)
+if(MSVC)
+    target_compile_options(GitOneMinute PRIVATE /utf-8 /W4)
+else()
+    target_compile_options(GitOneMinute PRIVATE -Wall -Wextra -Wpedantic)
+endif()
